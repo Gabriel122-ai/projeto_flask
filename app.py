@@ -19,9 +19,9 @@ def sobre():
 
 
 
-@app.route("/ola/<ceblinha>")
-def ola(cebolinha):
-    return render_template("ola.html", nome=cebolinha)
+@app.route("/ola/ceblinha")
+def ola(nome):
+    return render_template("ola.html", nome=nome)
 
 
 
