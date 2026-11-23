@@ -1,0 +1,17 @@
+<thead class="table-dark">
+  <tr><th>Id</th><th>Nome</th><th>Telefone</th><th>Cidade</th></tr>
+</thead>
+<tbody>
+  {% for aluno in alunos %}
+  <tr>
+    <td>{{ curso.id }}</td>
+    <td>{{ curso.nome }}</td>
+    <td>{{ curso.area }}</td>
+  </tr>
+  
+  {% else %}
+  <tr>
+    <td colspan="4" class="text-center">Nenhum aluno cadastrado.</td>
+  </tr>
+  {% endfor %}
+</tbody>
