@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 import aluno_service
-
+import curso_service
 
 app = Flask(__name__)
 
@@ -37,15 +37,15 @@ def tabuada(n):
 def tabuadas():
     return render_template("tabuadas.html")
 
+@app.route("/curso/")
+def listar_cursos():
+    cursos = curso_service.listar()
+    return render_template("curso/lista.html", cursos=cursos)
+
 @app.route("/aluno/")
 def listar_alunos():
     alunos = aluno_service.listar()
     return render_template("aluno/listar.html", alunos=alunos)
-
-
-
-
-
 
 if __name__ == "__main__":
     # host=0.0.0.0 permite o encaminhamento da porta no Codespaces.
