@@ -7,4 +7,4 @@ lista_aluno = [
      "telefone": "(86) 99999-0003", "cidade": "Parnaíba"},
 ]
 def listar():
-    return lista_aluno 
+    return lista_aluno
