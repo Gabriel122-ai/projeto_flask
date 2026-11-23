@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 import aluno_service
 import curso_service
 
@@ -42,6 +42,10 @@ def listar_alunos():
     alunos = aluno_service.listar()
     return render_template("aluno/listar.html", alunos=alunos)
 
+@app.route("/aluno/novo")
+def novo_aluno():
+    return render_template("aluno/form.html", aluno=None)
+                           
 @app.route("/curso/")
 def listar_cursos():
     cursos = curso_service.listar()
