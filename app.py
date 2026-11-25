@@ -63,7 +63,16 @@ def listar_cursos():
     cursos = curso_service.listar()
     return render_template("curso/lista.html", cursos=cursos)
 
-@app.route("/p/salvar", methods=["POST"])
+@app.route("/professor/")
+def listar_professores():
+    professores = professor_service.listar()
+    return render_template("professor/lista.html", professores=professores)
+
+@app.route("/professor/novo")
+def novo_professor():
+    return render_template("professor/form.html", professor=None)
+
+@app.route("/professor/salvar", methods=["POST"])
 def salvar_professor():
     id_professor = request.form["id"]
     nome = request.form["nome"]
