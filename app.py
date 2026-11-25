@@ -62,6 +62,12 @@ def listar_cursos():
     cursos = curso_service.listar()
     return render_template("curso/lista.html", cursos=cursos)
 
+@app.route("/disciplina/")
+def listar_disciplinas():
+    disciplinas = curso_service.listar()
+    return render_template("disciplinas/lista.html", disciplinas=disciplinas)
+
+
 if __name__ == "__main__":
     # host=0.0.0.0 permite o encaminhamento da porta no Codespaces.
     app.run(host="0.0.0.0", port=5000, debug=True)
