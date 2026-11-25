@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, redirect
 import aluno_service
 import curso_service
-
+import professor_service
+import disciplina_service
 app = Flask(__name__)
 
 
@@ -62,11 +63,15 @@ def listar_cursos():
     cursos = curso_service.listar()
     return render_template("curso/lista.html", cursos=cursos)
 
+@app.route("/professor/")
+def listar_professores():
+    professores = professor_service.listar()
+    return render_template("professor/lista_professor.html", professores=professores)
+
 @app.route("/disciplina/")
 def listar_disciplinas():
-    disciplinas = curso_service.listar()
-    return render_template("disciplinas/lista.html", disciplinas=disciplinas)
-
+    disciplinas = disciplina_service.listar()
+    return render_template("disciplina/lista_disciplina.html", disciplinas=disciplinas)
 
 if __name__ == "__main__":
     # host=0.0.0.0 permite o encaminhamento da porta no Codespaces.
