@@ -80,7 +80,7 @@ def salvar_curso():
 @app.route("/professor/")
 def listar_professores():
     professores = professor_service()
-    return render_template("aluno/form.html", aluno=None)
+    return render_template("professor/form.html", professor=None)
 
 @app.route("/professor/novo")
 def novo_professor():
