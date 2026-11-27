@@ -65,7 +65,7 @@ def listar_cursos():
 
 @app.route("/professor/")
 def listar_professores():
-    professores = professor_service.listar()
+    professores = professor.service()
     return render_template("aluno/form.html", aluno=None)
 
 @app.route("/professor/novo")
