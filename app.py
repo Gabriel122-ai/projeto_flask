@@ -63,6 +63,20 @@ def listar_cursos():
     cursos = curso_service.listar()
     return render_template("curso/lista.html", cursos=cursos)
 
+@app.route("/curso/novo")
+def novo_curso():
+    return render_template("curso/form.html", curso=None)
+
+@app.route("/curso/salvar", methods=["POST"])
+def salvar_curso():
+    id_curso = request.form["id"]
+    nome = request.form["nome"]
+    area = request.form["area"]
+    if id_curso == "":
+        curso_service.cadastrar(id, nome, area)
+    # Próxima aula: se o id vier preenchido, editar o aluno
+    return redirect("/curso/")
+
 @app.route("/professor/")
 def listar_professores():
     professores = professor_service()
