@@ -3,13 +3,12 @@ import aluno_service
 import curso_service
 import professor_service
 import disciplina_service
-app = Flask(__name__)
 
+app = Flask(__name__)
 
 @app.route("/")
 def index():
     return render_template("index.html", titulo="Minha primeira aplicação Flask")
-
 
 @app.route("/sobre")
 def sobre():
@@ -56,6 +55,7 @@ def salvar_aluno():
     if id_aluno == "":
         aluno_service.cadastrar(nome, telefone, cidade)
     # Próxima aula: se o id vier preenchido, editar o aluno
+
     return redirect("/aluno/")
                            
 @app.route("/curso/")
@@ -92,9 +92,11 @@ def salvar_professor():
     nome = request.form["nome"]
     Email = request.form["email"]
     Titulacao = request.form["titulacao"]
+
     if id_professor == "":
         professor_service.cadastrar(nome, Email, Titulacao)
     # Próxima aula: se o id vier preenchido, editar o professor
+    
     return redirect("/professor/")
 
 @app.route("/disciplina/")
